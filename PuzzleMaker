@@ -1,0 +1,14 @@
+Awhile back I wrote this Yara rule to detect PuzzleMaker malware. Note: This rule needs to be tested again since I don't have access to VTI
+rule PuzzleMaker {
+   meta:
+              description = "Detects PuzzleMaker 0 day Exploit"
+              author = "Nicko"
+              reference = "https://securelist.com/puzzlemaker-chrome-zero-day-exploit-chain/102771/"
+              date = "2021-06-08"
+   strings:
+      $s1 = "WmiPrvMon.exe" wide
+      $s2 = "wmimon.dll" wide
+   condition:
+     all of them
+}
+          
